@@ -11,9 +11,9 @@ import os
 
 
 load_dotenv()
-loaddoc = loaders.PyPDFLoader("Docs/article1.pdf").load()
+multiple_docs = loaders.PyPDFDirectoryLoader("Docs/").load()
 textsplit = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=150)
-splitdocs = textsplit.split_documents(loaddoc)
+splitdocs = textsplit.split_documents(multiple_docs)
 # Create an embeddings object.
 embeddings = OpenAIEmbeddings() 
 # Use Chroma.from_documents()
@@ -22,7 +22,7 @@ if os.path.exists("chroma_db"):
 else:
     vector_db = Chroma.from_documents(splitdocs, embeddings, persist_directory="chroma_db")
 # 1. Define a question as a plain string variable.
-q1 = "how do you identify waste in the manufacturing process?"
+q1 = "how do you identify waste in the manufacturing process and what are different types of waste?"
 # Out-of-scope question to test the "don't know" part of the prompt:
 # q1 = "what are the best practices for employee onboarding in the tech industry?"
 # 2. RETRIEVE: Pull the .page_content out of each returned chunk and join them into one

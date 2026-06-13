@@ -14,9 +14,9 @@ import streamlit as st
 @st.cache_resource
 def build_chain():
     load_dotenv()
-    loaddoc = loaders.PyPDFLoader("Docs/article1.pdf").load()
+    loaddocs = loaders.PyPDFDirectoryLoader("Docs/").load()
     textsplit = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=150)
-    splitdocs = textsplit.split_documents(loaddoc)
+    splitdocs = textsplit.split_documents(loaddocs)
     # Create an embeddings object.
     embeddings = OpenAIEmbeddings() 
     # Use Chroma.from_documents()
