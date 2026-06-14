@@ -2,6 +2,9 @@
 
 A Retrieval-Augmented Generation (RAG) chatbot that answers questions strictly from a collection of manufacturing PDF documents. Ask a question in plain English, and the app retrieves the most relevant passages from your documents and generates an answer grounded only in that content. If the answer is not in the documents, it says so instead of guessing.
 
+![screenshot](ragagent.png)
+
+
 ## Features
 
 - Document-grounded answers: responses are drawn only from the supplied PDFs, not the model's general knowledge.
