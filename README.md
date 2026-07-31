@@ -1,4 +1,4 @@
-# Manufacturing RAG Agent
+# [Manufacturing RAG Agent](https://pikaragagent.streamlit.app/)
 
 A Retrieval-Augmented Generation (RAG) chatbot that answers questions strictly from a collection of manufacturing PDF documents. Ask a question in plain English, and the app retrieves the most relevant passages from your documents and generates an answer grounded only in that content. If the answer is not in the documents, it says so instead of guessing.
 
